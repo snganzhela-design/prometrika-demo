@@ -1,0 +1,15 @@
+# Развёртывание демо-стенда ПРОМЕТРИКА на Render (тариф Free).
+# Подключение: dashboard.render.com → New → Blueprint → выбрать этот репозиторий.
+services:
+  - type: web
+    name: prometrika-demo
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: node server.js
+    healthCheckPath: /healthz
+    envVars:
+      - key: PROMETRIKA_DEMO_CODE
+        value: "PROMETRIKA-2026"
+      - key: PROMETRIKA_NO_WINDOW
+        value: "1"
